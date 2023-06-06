@@ -37,7 +37,7 @@ public class Application {
 
             userService.addRoleToUser("007@email.ru", "ROLE_ADMIN");
             userService.addRoleToUser("Vesper@email.ru", "ROLE_USER");
-            userService.addRoleToUser("push@yandex.ru", "ROLE_USER");
+            userService.addRoleToUser("007@email.ru", "ROLE_USER");
         };
     }
 }
