@@ -22,7 +22,7 @@ public class RstController {
     }
 
     @GetMapping(value = "/getAuthorizedUserInfo", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> getAllUsers(Authentication authentication) {
+    public ResponseEntity<Object> getUserByEmail(Authentication authentication) {
         return ResponseEntity.ok().body(userService.getUserByEmail(authentication.getName()));
     }
 

@@ -16,6 +16,7 @@ public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
 
     @Override
+    @Transactional
     public void addNewRole(Role role) {
         log.info("Saving new role {} to database", role.getNameRole());
         Role roleByName = roleRepository.findByNameRole(role.getNameRole());
@@ -26,6 +27,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Role findByNameRole(String nameRole) {
         return roleRepository.findByNameRole(nameRole);
     }

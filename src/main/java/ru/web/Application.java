@@ -26,18 +26,4 @@ public class Application {
         return new BCryptPasswordEncoder(10);
     }
 
-    @Bean
-    CommandLineRunner commandLineRunner(UserServiceImpl userService, RoleServiceImpl roleService) {
-        return args -> {
-            roleService.addNewRole(new Role(null, "ROLE_USER"));
-            roleService.addNewRole(new Role(null, "ROLE_ADMIN"));
-
-            userService.addNewUser(new User(null, "007@email.ru", "James", "Bond", LocalDate.of(1988, Month.MARCH, 31), "007", true, new HashSet<>()));
-            userService.addNewUser(new User(null, "Vesper@email.ru", "Vesper", "Lynd", LocalDate.of(1991, Month.APRIL, 14), "001", true, new HashSet<>()));
-
-            userService.addRoleToUser("007@email.ru", "ROLE_ADMIN");
-            userService.addRoleToUser("Vesper@email.ru", "ROLE_USER");
-            userService.addRoleToUser("007@email.ru", "ROLE_USER");
-        };
-    }
 }
